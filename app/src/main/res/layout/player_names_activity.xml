@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image">
+
+    <EditText
+        android:id="@+id/player_one_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:hint="@string/play_one_identifier"
+        android:text="@string/play_one_identifier"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/player_two_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/player_one_name"
+        android:layout_marginTop="41dp"
+        android:hint="@string/play_two_identifier"
+        android:text="@string/play_two_identifier"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/two_player_proceed_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/player_two_name"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginTop="82dp"
+        android:background="@drawable/tic_tac_button"
+        android:clickable="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/play"
+        android:textAllCaps="true"
+        android:textColor="#000000" />
+
+
+</RelativeLayout>
