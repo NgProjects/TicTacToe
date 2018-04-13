@@ -97,13 +97,13 @@ public class PlayGame extends RxAppCompatActivity {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String scores = ticTacToeView.getPLAYER_ONE_NAME() + " - 0"
+        String refreshedScore = ticTacToeView.getPLAYER_ONE_NAME() + " - 0"
                 + "\n" + ticTacToeView.getPLAYER_TWO_NAME() + " - 0"
                 + "\n" +  "Ties - 0";
 
        // dialog.isDone = true;
         //dialog.title = title;
-        dialog.message = scores;
+        dialog.message = refreshedScore;
         dialog.prefs = prefs;
         dialog.refreshScores();
     }
@@ -320,6 +320,7 @@ public class PlayGame extends RxAppCompatActivity {
             return builder.build();
         }
 
+        //reset scores for the current players
         public void refreshScores() {
             prefs.edit()
                     .putInt(TicTacToeConstants.PLAYER_ONE_SCORES, 0)
@@ -330,7 +331,6 @@ public class PlayGame extends RxAppCompatActivity {
 
         @Override
         public void onDestroyView() {
-            // workaround for a bug causing the dialog to dismissed on rotation
                 if (getDialog() != null && getRetainInstance()) {
                     getDialog().setDismissMessage(null);
             }

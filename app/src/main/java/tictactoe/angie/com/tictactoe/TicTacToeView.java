@@ -104,11 +104,6 @@ public final class TicTacToeView extends FrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    /**
-     * Utility function for tinting. I opted against using the support library's tint backport
-     * because it exhibits weird race conditions on pre-lollipop when you need it to happen
-     * synchronously.
-     */
     private static void safeTint(ImageView imageView, @ColorRes int color) {
         int resolvedColor = imageView.getResources().getColor(color);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
