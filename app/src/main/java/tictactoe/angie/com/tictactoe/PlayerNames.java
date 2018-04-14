@@ -42,7 +42,6 @@ public class PlayerNames extends AppCompatActivity {
 
     private String getPlayerNames(int id) {
         EditText nameTextView = findViewById(id);
-        String name = nameTextView.getText().toString();
-        return name;
+        return nameTextView.getText().toString();
     }
 }

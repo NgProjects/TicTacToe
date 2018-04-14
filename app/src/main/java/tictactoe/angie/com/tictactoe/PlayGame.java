@@ -101,8 +101,6 @@ public class PlayGame extends RxAppCompatActivity {
                 + "\n" + ticTacToeView.getPLAYER_TWO_NAME() + " - 0"
                 + "\n" +  "Ties - 0";
 
-       // dialog.isDone = true;
-        //dialog.title = title;
         dialog.message = refreshedScore;
         dialog.prefs = prefs;
         dialog.refreshScores();
@@ -119,7 +117,7 @@ public class PlayGame extends RxAppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // If the game got any more complex, I'd probably switch to some form of game serialization
+
         outState.putCharArray(TicTacToeConstants.GRID_STATE, game.getGridState());
         outState.putBoolean(TicTacToeConstants.IS_GAME_OVER, game.isOver());
         outState.putChar(TicTacToeConstants.CURRENT_PLAYER, game.currentPlayer());
@@ -191,9 +189,7 @@ public class PlayGame extends RxAppCompatActivity {
     }
 
     /**
-     * Simulate a CPU move. This can sometimes take awhile, and we also want it to happen after a
-     * delay. To do this without blocking the UI thread, RxJava is my go-to tool for threading.
-     * Used in tandem with RxLifecycle, we can do this in a non-leaky and responsive way.
+     * Simulate cpu move
      */
     private void simulateCpuMove() {
         final Snackbar snackbar = Snackbar.make(ticTacToeView, "Thinking...", Snackbar.LENGTH_INDEFINITE);
@@ -275,10 +271,6 @@ public class PlayGame extends RxAppCompatActivity {
         dialog.show(getSupportFragmentManager(), "scores");
     }
 
-    /**
-     * These are annoyingly tedious to maintain, but necessary to avoid leaky windows and
-     * maintaining the dialog across rotations.
-     */
     public static class ScoresDialogFragment extends DialogFragment {
 
         boolean isDone;

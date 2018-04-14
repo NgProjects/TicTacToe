@@ -196,7 +196,7 @@ public final class TicTacToeGame {
                     @Override
                     public void call(Object o) {
                         if (getAvailableStates().size() == grid.length) {
-                            // minimax will spend a lot of time calculating every permutation of this, but always ends on 0. Let's spice it up
+
                             nextCpuMove = new Random().nextInt(grid.length);
                         } else {
                             minimax(0, PLAYER_TWO, -1);
@@ -223,11 +223,11 @@ public final class TicTacToeGame {
         return "TicTacToeGame{currentPlayer="
                 + currentPlayer
                 + ", current grid="
-                + pprintGrid()
+                + printGrid()
                 + "\n}";
     }
 
-    private String pprintGrid() {
+    private String printGrid() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 9; ++i) {
             if (i % 3 == 0) {
@@ -324,11 +324,11 @@ public final class TicTacToeGame {
             int score = minimax(depth, otherPlayer, index);
             if ((isPlayerTwo && score > runningScore)
                     || (!isPlayerTwo && score < runningScore)
-                    || (score == runningScore && random.nextBoolean())) {   // Equally good/bad options, so randomly choose one for added flavor
+                    || (score == runningScore && random.nextBoolean())) {
                 runningScore = score;
                 chosenIndex = index;
             }
-            grid[index] = NONE; // Clean up when we're done
+            grid[index] = NONE;
         }
 
         nextCpuMove = chosenIndex;

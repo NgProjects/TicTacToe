@@ -269,7 +269,7 @@ public final class TicTacToeView extends FrameLayout {
     }
 
     public void reset() {
-        // https://github.com/JakeWharton/butterknife/issues/332
+
         ButterKnife.apply(tiles, ENABLE_ALL);
         ButterKnife.apply(tiles, RESET_IMAGE);
     }
